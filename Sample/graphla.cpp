@@ -1,16 +1,29 @@
-#include <cassert>
-#include <iostream>
-#include <limits>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 typedef vector<vector<double>> Graph;
+#define endl '\n';
+//Datastructures Final Project
+// see [1] for more details written in spanish.
+//hfjimenez@utp.edu.co, Hector F. Jimenez.
+//sebastzapata93@gmail.com, Sebastian Zapata.
+//[1]
+//ToDo:
+// Review Matriz and linear algebra Operations
+// Find a fast exponentiation of matriz.
+// How to find its n'th power in O( d3log(n) ).
+// Implement a better aproach to the implmenented bfs, maybe using a pq.
+// Check for How to read and parse data, meanwhile reading calculate the Graph
+// How could we implement in the actual time and How much memory we need
+// Think about complexity.
+// Review for dead,shity code.
+// Prepare Presentation
 
+//Calcular producto punto
 double dot(const vector<double> &x, const vector<double> &y) {
   assert(x.size() == y.size());
   double r = 0.0;
-  for (int i = 0; i < x.size(); i++) {
-    r = r + x[i] * y[i];
+  for (auto i: x) {
+    r +=x.at(i) * y.at(i);
   }
   return r;
 }
@@ -42,14 +55,11 @@ vector<vector<double>> multMatMat(const vector<vector<double>> &A,
   int colsA = A[0].size();
   int rowsB = B.size();
   int colsB = B[0].size();
-
   assert(colsA == rowsB);
-
   vector<vector<double>> R(rowsA);
   for (int i = 0; i < rowsA; i++) {
     R[i] = vector<double>(colsB, 0.0);
   }
-
   for (int i = 0; i < rowsA; i++) {
     for (int j = 0; j < colsB; j++) {
       double c = 0.0;
@@ -110,7 +120,7 @@ int main() {
     }
     cout << endl;
   }
-
+cout<<"H";
   /*
     vector<double> visited = BFS(g2, 3);
     for (double i : visited) {
